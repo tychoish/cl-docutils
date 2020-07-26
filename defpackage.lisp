@@ -96,7 +96,7 @@
     #:evaluate  #:*evaluation-error-hook* #:*evaluator*
     #:*default-reader-package* #:output-format #:evaluation-language
    ;;simple example usage
-   #:read-rst #:write-html #:write-latex))
+   #:read-rst #:write-html #:write-latex #:write-texinfo))
 
 (defpackage :docutils.transform
   (:documentation "Package containing standard docutils Node names")

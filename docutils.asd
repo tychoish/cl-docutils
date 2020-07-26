@@ -18,38 +18,39 @@
   :components
   ((:file "defpackage")
    (:file "nodes" :depends-on ("defpackage" "report" "utilities"
-                                            "languages"))
+					    "languages"))
    (:file "publisher" :depends-on ("defpackage" "nodes"))
    (:file "utilities" :depends-on ("defpackage"))
    (:file "report" :depends-on ("defpackage" "utilities"))
    (:module "languages" :depends-on ("defpackage")
-            :components ((:file "translate")
-                         (:file "en" :depends-on ("translate"))))
+	    :components ((:file "translate")
+			 (:file "en" :depends-on ("translate"))))
    (:module "parsers"
-            :depends-on ("publisher"
-                         "nodes" "utilities" "report" "transforms" "languages")
-            :components
-            ((:file "defpackage")
-             (:file "state-machine" :depends-on ("defpackage"))
-             (:file "inline" :depends-on ("defpackage"))
-             (:file "regexp" :depends-on ("defpackage"))
-             (:file "tables" :depends-on ("defpackage"))
-             (:file "rst" :depends-on
-                    ("defpackage" "inline" "regexp" "state-machine" "tables"))
-             (:file "directives" :depends-on ("rst" "inline" "roles"))
-             (:file "roles" :depends-on ("rst" "inline"))))
+	    :depends-on ("publisher"
+			 "nodes" "utilities" "report" "transforms" "languages")
+	    :components
+	    ((:file "defpackage")
+	     (:file "state-machine" :depends-on ("defpackage"))
+	     (:file "inline" :depends-on ("defpackage"))
+	     (:file "regexp" :depends-on ("defpackage"))
+	     (:file "tables" :depends-on ("defpackage"))
+	     (:file "rst" :depends-on
+		    ("defpackage" "inline" "regexp" "state-machine" "tables"))
+	     (:file "directives" :depends-on ("rst" "inline" "roles"))
+	     (:file "roles" :depends-on ("rst" "inline"))))
    (:module "transforms"
-            :depends-on ("nodes" "utilities" "publisher" "report" "languages")
-            :components
-            ((:file "defpackage")
-             (:file "filter" :depends-on ("defpackage"))
-             (:file "universal" :depends-on ("defpackage"))
-             (:file "references" :depends-on ("defpackage"))
-             (:file "frontmatter" :depends-on ("defpackage"))
-             (:file "misc" :depends-on ("defpackage"))
-             (:file "parts" :depends-on ("defpackage"))))
+	    :depends-on ("nodes" "utilities" "publisher" "report" "languages")
+	    :components
+	    ((:file "defpackage")
+	     (:file "filter" :depends-on ("defpackage"))
+	     (:file "universal" :depends-on ("defpackage"))
+	     (:file "references" :depends-on ("defpackage"))
+	     (:file "frontmatter" :depends-on ("defpackage"))
+	     (:file "misc" :depends-on ("defpackage"))
+	     (:file "parts" :depends-on ("defpackage"))))
    (:module "writers"
-            :depends-on ("parsers")
-            :components
-            ((:file "html")
-             (:file "latex")))))
+	    :depends-on ("parsers")
+	    :components
+	    ((:file "html")
+	     (:file "latex")
+	     (:file "texinfo")))))
